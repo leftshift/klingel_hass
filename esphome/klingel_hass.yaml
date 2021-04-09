@@ -12,6 +12,8 @@ wifi:
 
 mqtt:
   broker: !secret mqtt_broker
+  username: !secret mqtt_username
+  password: !secret mqtt_password
 
 logger:
   level: INFO
@@ -19,8 +21,8 @@ logger:
     mqtt.component: INFO
     mqtt.client: ERROR
 
-api:
-  password: !secret hass_api_password
+# api:
+#  password: !secret hass_api_password
 
 ota:
   password: !secret ota_password
