@@ -50,6 +50,8 @@ binary_sensor:
         mode: INPUT_PULLUP
         inverted: True
     name: "bell"
+    filters:
+      - delayed_off: 100ms
     on_press: # auto mute feature
       then:
         - if:
@@ -81,7 +83,11 @@ switch:
     pin: D7
   - platform: gpio
     name: "RelayA"
+    id: relayA
     pin: D6
+    on_turn_on:
+      - delay: 10s
+      - switch.turn_off: relayA
   - platform: gpio
     name: "RelayB"
     pin: D5
